@@ -16,7 +16,7 @@ pipeline{
         }
         stage('archive artifacts'){
             steps{
-                archiveArtifacts '**/*.war'
+                archiveArtifacts '**/*.jar'
             }
         }
         stage('junit reports'){
