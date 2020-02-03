@@ -28,7 +28,7 @@ pipeline{
             steps{
                 sh label: '', script: '''whoami
                 docker image build -t spc:1.0 .
-                docker container run --name ride -d -p 8081:8080 spc:1.0'''
+                docker container run --name ride -d -p 8082:8080 spc:1.0'''
             }
         }
 		stage('sending mail'){
@@ -39,7 +39,7 @@ pipeline{
 	}
     post {		
 		success {
-			echo "Sending successful email"
+			echo "Sending successsful email"
 			emailext (
 				subject: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 				body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
