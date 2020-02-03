@@ -16,12 +16,7 @@ pipeline{
         }
         stage('archive artifacts'){
             steps{
-                archiveArtifacts '**/*.jar'
-            }
-        }
-        stage('junit reports'){
-            steps{
-                junit 'server/target/surefire-reports/*.xml'
+                archiveArtifacts '/var/lib/jenkins/workspace/spc-pipe/target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.war'
             }
         }
 		stage('docker'){
